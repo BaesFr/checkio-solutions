@@ -11,7 +11,14 @@ import unittest
 
 def checkio(offers):
     initial_petr, raise_petr, initial_driver, reduction_driver = offers
-    return (initial_driver - reduction_driver) / 2
+    offer_petr = initial_petr
+    offer_driver = initial_driver
+    i=1
+    while offer_petr < offer_driver:
+        offer_petr = initial_petr + i*raise_petr
+        offer_driver = initial_driver - i*reduction_driver
+        i = i + 1
+    return offer_petr
 
 class ChekioTest(unittest.TestCase):
     def test_1(self):
